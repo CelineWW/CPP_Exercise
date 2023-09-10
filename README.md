@@ -55,4 +55,6 @@ choices. After being done and exiting a choice from the sub-menu, it must go bac
 from the main menu will end the program. With a choice, there could be several nested sub-menus. So, when a sub-
 menu is done it must go back to its outer menu. (2 points deducted for NOT USING the pattern)
 
+![PA3_Metric_English_coversion_code.png]https://github.com/CelineWW/CPP_Exercise/blob/main/PA3_metric_english_conversion/PA3_Metric_English_coversion_code.png
+
 ![PA3_Metric_English_coversion_console3.png]https://github.com/CelineWW/CPP_Exercise/blob/main/PA3_metric_english_conversion/PA3_Metric_English_coversion_console3.png
