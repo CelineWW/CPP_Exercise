@@ -41,72 +41,51 @@ int main() {
                 cout << "Enter the number of students between 5 and 30 inclusive: ";
                 cin >> adds;
                 
-                //Input validation
+                //input validation and append added student names
                 if (adds >=5 && adds <=30){
                     ofstream output_file;
                     output_file.open("Students Names.txt", ios::app);
                     string current;
-                    
                     for (int count = 1; count <= adds; count++){
                         cout << "\nEnter the full name of student" << count << ":";
                         cin.ignore();
                         getline(cin, current, '\n');
                         output_file << current << '\n';
-                        
-                        
-                        //                            cout << count << "." << current << '\n';
-                        
-                        //                    string current;
-                        //                    stringstream ss;
-                        //                    int count = 0;
-                        //                    cout << "\nEnter the full name of student" << ++count << ":";}
-                        //                        // store and list user entered student names
-                        //                        string current;
-                        //
-                        //                            //
-                        //                            //
-                        //                            //                    //                            ss.str(current);
-                        //                            //                    //                            ss.clear();
-                        //                            //                    //                            if (ss >> current) {
-                        //
-                        
                     }
                     output_file.close();
                     
+                    //list added names
                     cout << "\nHere is the list of names you have entered:\n";
-                    string line;
-                    string s;
                     ifstream input_file;
+                    string line;
+//                    string name;
+                    stringstream ss;
                     input_file.open("Students Names.txt");
                     
-                    //
-                    int lineCount = 1;
+                    //get total line of file
+                    int line_count = 1;
                     while (getline(input_file, line)){
-                        lineCount++;
+                        line_count++;
                     }
-                    for (int i = lineCount-adds; i <= lineCount; i++){
-                        std::getline(input_file, s);
-                        std::cout << s;
+                    //get last added lines of file
+                    for (int i = line_count-adds; i <= line_count; i++){
+                        getline(input_file, line);
+                        ss.str(line);
+                        ss.clear();
+                        cout << i  << "." << line << '\n';
+//                        if (ss >> name){
+//                            cout << i  << "." << name << '\n';
+//                        }
+                        input_file.close();
                     }
-                    input_file.close();
-//                    while (getline(input_file, line)){
-//
-//                    };
-                    
-//                    cout << lineCount << endl;
-//                    for (int count = 1; count <= adds; count++){
-//                        cout << current << endl;
-//                    }
+                        //print the top and end of last input.
                         cout << "The name at the top: " << "\n";
                         cout << "The name at the end: " << "\n";
-                    
-                    //                while (getline(cin, current, '\n')){
-                    //
-                    //                    cout << count << ". "  << current << '\n';
-                    //                    }
-                    
+                   
                     break;
                 }
+                
+                //Input number validation
                 else if(adds < 5){
                     cout << "Minimum added students - 5. Try again.\n";
                 }
@@ -118,6 +97,9 @@ int main() {
         // 2. read from external file
         else if (choice == 2){
             ifstream infile("Students Names.txt");
+            string top = "ZZ";
+            string end = "AA";
+            //list all names from the entire file
             if (infile){
                 string line;
                 stringstream ss;
@@ -127,11 +109,18 @@ int main() {
                     ss.str(line);
                     ss.clear();
                     cout << line_count++ << ". " << line << '\n';
+                    
+                    
+                    //update top and end
+                    if (line < top)
+                        top = line;
+                    if (line > end)
+                        end = line;
                 }
             }
-            
-            cout << "\n\nThe name at the top: " << endl;
-            cout << "The name at the end: " << endl << endl;
+            //print names at the top and end
+            cout << "\n\nThe name at the top: " << top << endl;
+            cout << "The name at the end: " << end << endl << endl;
             
             infile.close();
         }
@@ -143,8 +132,6 @@ int main() {
             break;
         }
         continue;
-        
-        
     }
     return 0;
 }
