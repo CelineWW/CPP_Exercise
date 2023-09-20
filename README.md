@@ -58,3 +58,20 @@ menu is done it must go back to its outer menu. (2 points deducted for NOT USING
 ![PA3_Metric_English_coversion_code.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA3_metric_english_conversion/PA3_Metric_English_coversion_code.png)
 
 ![PA3_Metric_English_coversion_console3.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA3_metric_english_conversion/PA3_Metric_English_coversion_console3.png)
+
+## PA4 Student List
+A teacher wants to list all her students’ full names, considering only for the two students at the front and the end of the list that must be in alphabetical order. That meant the student at the top and at the end of the list will be set alphabetically according to their full name.
+
+The list of names could be either read in from an external text file or entered from the keyboard, one full name at a time. Once all the names have been read in, the program reports which name should be at the top of the list, and which name should be at the end of the list, in alphabetical order of their names. Not using array, or vector.
+
+Also, the list of names must be displayed on the screen, together with the original order that their names were entered, for the teacher to check back of her record.
+
+Allow your program to run continuously as often as the user wishes. The number of students must be in the range of 5 to 30, inclusively. 
+Allow the filename, which has more than one word, entered at the run time. The program  accept the attached text file.
+If the names were entered from the keyboard, all the read-in names must be recorded in the order that they were entered into an external text file.
+
+![PA4_student_list_code_2.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA4_student_list/PA4_student_list_code_2.png)
+
+![PA4_student_list_console_3.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA4_student_list/PA4_student_list_console_3.png)
+
+![PA4_student_list_console_1.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA4_student_list/PA4_student_list_console_1.png)
