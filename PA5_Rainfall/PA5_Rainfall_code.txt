@@ -13,20 +13,22 @@
 using namespace std;
 
 int main() {
-    // display title and instructions
+    // display title
     cout << "Rainfall Summary\n\n";
-    cout << "The programs reads rainfall values for each of the 12 months in a year, "
-         << "from an external text file starting with January and ending with December, "
-         << "into an array of doubles.\n";
-    cout << "The program then calculates and displays it on the screen: \n"
-         << "the total rainfall for the year, the average monthly rainfall, "
-         << "and the months with the highest and lowest amounts.\n";
-    cout << "The read-in values and their intended months were displayed at the end "
-         << "(with a note of largest or smallest next to the corresponding value).\n";
-    cout << "The name of the text file must be entered at the runtime." << endl << endl;
     
     char choice = 'y';
     while (choice == 'y'| choice == 'Y'){
+        
+        // display instruction
+        cout << "The programs reads rainfall values for each of the 12 months in a year, "
+             << "from an external text file starting with January and ending with December, "
+             << "into an array of doubles.\n";
+        cout << "The program then calculates and displays it on the screen: \n"
+             << "The total rainfall for the year, the average monthly rainfall, "
+             << "and the months with the highest and lowest amounts.\n";
+        cout << "The read-in values and their intended months were displayed at the end "
+             << "(with a note of largest or smallest next to the corresponding value).\n";
+        cout << "The name of the text file must be entered at the runtime." << endl << endl;
         
         //open input file
         string filename;
@@ -72,11 +74,13 @@ int main() {
         vector<string> max_months;
         vector<string> min_months;
         for(int i = 0; i < rainfalls.size(); ++i){
+            string note;
             if (rainfalls[i] == max_rainfall){
                 max_months_index.push_back(i);
                 max_months.push_back(months[i]);
+                
             }
-            if (rainfalls[i] == min_rainfall){
+            else if (rainfalls[i] == min_rainfall){
                 min_months_index.push_back(i);
                 min_months.push_back(months[i]);
             }
@@ -100,6 +104,25 @@ int main() {
         }
 //        cout << min_month_list.str() << endl;
         
+        // create a vector of largest/smallest note.
+        vector<string> notes;
+        for(int i = 0; i < rainfalls.size(); ++i){
+            string note;
+            if (rainfalls[i] == max_rainfall){
+                note = " (largest) ";
+                notes.push_back(note);
+            }
+            else if (rainfalls[i] == min_rainfall){
+            note = " (smallest) ";
+            notes.push_back(note);
+            }
+            else {
+                note = "";
+                notes.push_back(note);
+            }
+        }
+        cout << endl;
+        
         cout << fixed << setprecision(2);
         cout << "The total: " << total_rainfall << " inches."<< endl;
         cout << "The average: " << avg_rainfall << " inches."<<endl;
@@ -113,7 +136,8 @@ int main() {
         
         // display month-rainfall table data
         for(int r = 0; r < rainfalls.size(); ++r){
-            cout << setw(12) << left << months[r] << setw(12) << right << rainfalls[r] << endl;
+            cout << setw(12) << left << months[r] << setw(12) << right << rainfalls[r]
+                 << setw(12) << left << notes[r] << endl;
         }
       
         cout << endl << endl;
@@ -131,29 +155,7 @@ int main() {
     cin.ignore();
     cout << "GOODBYE!" << endl << endl;
     cout << "Programmer: Celine Wang - written for the class CISC 192 - C++ Programming." << endl;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     
     return 0;
 }
