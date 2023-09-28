@@ -108,25 +108,25 @@ int main() {
         cout << endl << endl;
         
         // display month-rainfall table title
-        cout << setw(12);
-        cout << left << "Month" << "Rainfall" << endl;
-        cout << left << "=====" << "========" << endl;
+        cout << setw(12) << left << "Month" << setw(12) << right << "Rainfall" << endl;
+        cout << setw(12) << left << "=====" << setw(12) << right << "========" << endl;
         
         // display month-rainfall table data
-        
-        
-        
-        
-        
-        //---------------------if(){continue;}-----------
-//        cout << endl;
-//        cout << "Run the program again (y/n)? ";
-//        cin >> choice;
-//        cout << endl;
+        for(int r = 0; r < rainfalls.size(); ++r){
+            cout << setw(12) << left << months[r] << setw(12) << right << rainfalls[r] << endl;
+        }
+      
+        cout << endl << endl;
+
+        cout << "Run the program again (y/n)? ";
+        cin >> choice;
+        cin.ignore();
+        cout << endl;
+        continue;
     }
     
     // exit the program with enter key to confirm
-    cin.ignore();
+//    cin.ignore();
     cout << "As you wanted to stop the program, press the <Enter> key to do so.\n";
     cin.ignore();
     cout << "GOODBYE!" << endl << endl;
