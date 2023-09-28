@@ -75,3 +75,15 @@ If the names were entered from the keyboard, all the read-in names must be recor
 ![PA4_student_list_console_3.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA4_student_list/PA4_student_list_console_3.png)
 
 ![PA4_student_list_console_1.png](https://github.com/CelineWW/CPP_Exercise/blob/main/PA4_student_list/PA4_student_list_console_1.png)
+
+## PA5 Rainfall
+
+This program reads rainfall values for each of the 12 months in a year, from an external text file (sample resources attached) starting with January and ending with December.
+The program then calculates and displays on screen the total rainfall for the year, the average monthly rainfall, and the highest and lowest amounts of rainfall, with their corresponding month name.
+All read-in values and their intended month names must be displayed for checking, with a note of the largest or smallest next to the corresponding value.
+The program run continuously checking with any other data files unless user wants to stop. 
+
+
+![PA5_Rainfall_code2.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA5_Rainfall/PA5_Rainfall_code2.png)
+![PA5_Rainfall_console1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA5_Rainfall/PA5_Rainfall_console1.png)
+![PA5_Rainfall_console2.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA5_Rainfall/PA5_Rainfall_console2.png)
