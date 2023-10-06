@@ -87,3 +87,8 @@ The program run continuously checking with any other data files unless user want
 ![PA5_Rainfall_code2.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA5_Rainfall/PA5_Rainfall_code2.png)
 ![PA5_Rainfall_console1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA5_Rainfall/PA5_Rainfall_console1.png)
 ![PA5_Rainfall_console2.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA5_Rainfall/PA5_Rainfall_console2.png)
+
+## PA6 Open Box
+An open box is made from a piece of rectangular cardboard by cutting out squares of equal size from the four corners and bending up the sides. What size should the squares be to obtain a box with the largest possible volume? The length and width of the cardboard are given by the user.
+This program uses a function-driven style to solve this problem.
+
