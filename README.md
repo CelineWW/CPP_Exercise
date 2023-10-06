@@ -92,3 +92,8 @@ The program run continuously checking with any other data files unless user want
 An open box is made from a piece of rectangular cardboard by cutting out squares of equal size from the four corners and bending up the sides. What size should the squares be to obtain a box with the largest possible volume? The length and width of the cardboard are given by the user.
 This program uses a function-driven style to solve this problem.
 
+![open box pic.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA6_open_box/open%20box%20pic.png)
+
+![PA6_Open_Box_code.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA6_open_box/PA6_Open_Box_code.png)
+
+![PA6_Open_Box_console.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA6_open_box/PA6_Open_Box_console.png)
