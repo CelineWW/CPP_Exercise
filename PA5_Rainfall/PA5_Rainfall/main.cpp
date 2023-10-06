@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main() {
     cout << "Rainfall Summary\n\n";
     
     char choice = 'y';
-    while (choice == 'y'| choice == 'Y'){
+    while (choice == 'y'|| choice == 'Y'){
         
         // display instruction
         cout << "The programs reads rainfall values for each of the 12 months in a year, "

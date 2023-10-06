@@ -1,0 +1,151 @@
+//
+//  main.cpp
+//  PA6_open_box
+//
+//  Created by Celine Wang on 10/5/23.
+//
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// define display_title function
+void display_title(){
+    cout << "Open Box" << endl;
+    cout << "Provide a size of rectangular cardboard, the program will give you the largest possible volume of the box that this cardboard can make." << endl << endl;
+}
+
+// define get_input function
+string get_input(string prompt){
+    string input;
+    cout << prompt;
+    cin >> input;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    return input;
+}
+
+// define is_valid_input function
+bool is_valid_input(string input){
+    bool valid_input = true;
+    // validate the input if contains characters and negative values
+    bool contains_characters = false;
+    bool contains_negative = false;
+    for (char c: input){
+        if (isalpha(c)){
+            contains_characters = true;
+            break;
+        }
+        if (c == '-') {
+            contains_negative = true;
+            break;
+        }
+    }
+    if (contains_characters) {
+        cout << "Value can not contain characters." << endl;
+        valid_input = false;
+    }
+    if (contains_negative) {
+        cout << "Value can not be negative number." << endl;
+        valid_input = false;
+    }
+    // prompt user to enter another input until the value is valid
+    if (!valid_input) {
+        cout << "Please try again.\n";
+    }
+    return valid_input;
+}
+
+// define to_double function
+double to_double (string input) {
+    double double_input = stod(input);
+    return double_input;
+}
+
+// define get_max_vol function
+void get_max_vol(double len, double wid, double& cut, double& vol){
+    double bottom_length = 0;
+    double bottom_width = 0;
+    double max_vol = 0;
+    for (double height = 0; (height < len / 2) && (height < wid / 2); height+=0.01){
+        bottom_length = len - 2 * height;
+        bottom_width = wid - 2 * height;
+        double volume = bottom_length * bottom_width * height;
+        if (volume > max_vol){
+            max_vol = volume;
+            vol = round(max_vol * 100) / 100;
+            cut = round(height * 100) / 100;
+        }
+    }
+}
+
+// define display_result function
+void display_result(double len, double wid, double cut, double vol){
+    cout << endl;
+    cout << "The given length of the cardboard: " << len << endl;
+    cout << "The given width of the cardboard: " << wid << endl;
+    cout << "The maximum volume of the opened box: " << vol << endl;
+    cout << "The size of the cut: " << cut << endl;
+}
+
+// define run_again function
+bool run_again(char choice){
+    cout << "Run the program again (y/n)? ";
+    cin >> choice;
+    if (choice == 'y' || choice == 'Y'){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// define display_name function
+void display_name(){
+    cout << endl;
+    cout << "Programmer: Celine Wang - written for the class CISC 192 - C++ Programming." << endl;
+}
+
+
+int main() {
+    
+    // display title and instruction
+    display_title();
+    // initialize choice
+    char choice = 'n';
+    do {
+        // get user input of length and validate length input
+        string length;
+        bool valid_length = false;
+        while (!valid_length){
+            length = get_input("Enter the length: ");
+            valid_length = is_valid_input(length);
+        }
+        // change length to double data type
+        double length_double = to_double(length);
+        
+        // get user input of width and validate width input
+        string width;
+        bool valid_width = false;
+        while (!valid_width){
+            width = get_input("Enter the width: ");
+            valid_width = is_valid_input(width);
+        }
+        // change width to double data type
+        double width_double = to_double(width);
+        
+        // get maximum volume of the opened box.
+        double cut = 0;
+        double vol = 0;
+        get_max_vol(length_double, width_double, cut, vol);
+        
+        // display the result
+        display_result(length_double, width_double, cut, vol);
+    }
+    // use do_while loop to allow the programe run again according to user's choice.
+    while (run_again(choice));
+    
+    // display programmer and course name
+    display_name();
+    return 0;
+}

@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int main() {
     cout << "The name of the text file must be entered at the runtime." << endl << endl;
     
     char choice = 'y';
-    while (choice == 'y'| choice == 'Y'){
+    while (choice == 'y'|| choice == 'Y'){
         
         //open input file
         string filename;
