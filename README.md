@@ -107,4 +107,6 @@ Besides that, three other special times also carry specific meanings:
 
 This program that asks the user to enter a time in the format HH:MM or H:MM(the format is strictly required). Any junk values are rejected. Allow program continuously run as long as the user wishes to test it at other times.
 
-![]
+![PA7_digital_clock_code1.png]()
+![PA7_digital_clock_code2.png]()
+![PA7_digital_clock_console.png]()
