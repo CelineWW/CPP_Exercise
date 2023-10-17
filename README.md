@@ -97,3 +97,14 @@ This program uses a function-driven style to solve this problem.
 ![PA6_Open_Box_code.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA6_open_box/PA6_Open_Box_code.png)
 
 ![PA6_Open_Box_console.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA6_open_box/PA6_Open_Box_console.png)
+
+## PA7 Digital Clock
+There is a belief that if at any time a person looks at a digital clock (with standard time), and if the digits of the hours and minutes add up equally for the two parts, it is a good time, or a lucky time that will predict or is a forecast that whatever you were thinking/ wishing at that instant, might come true. For example, 12:03, 12:30, 4:04, 4:13, or 4:31 are considered as lucky times. (Note: In that belief, all other times should be viewed as “normal time”.)
+Besides that, three other special times also carry specific meanings:
+- If all digits are the same, like 4:44, 5:55, or 11:11. It predicts you might win a lottery.
+- If all digits are in ascending order, like 3:45, 4:56, or 12:34. It predicts all dreams will come true.
+- If all digits are in descending order, like 3:21, or 6:54. It predicts a challenging road is ahead.
+
+This program that asks the user to enter a time in the format HH:MM or H:MM(the format is strictly required). Any junk values are rejected. Allow program continuously run as long as the user wishes to test it at other times.
+
+![]
