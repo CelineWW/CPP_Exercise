@@ -124,8 +124,9 @@ Define a structure that can represent a rational number. Perform all the followi
 - Printing Rational numbers in floating-point (2 digits after the decimal point) format.
 
 The program runs continuously until the user wants to quit it.
-![PA8_rational_number_code_1]()
-![PA8_rational_number_code_2]()
-![PA8_rational_number_code_3]()
-![PA8_rational_number_console1]()
-![PA8_rational_number_console2]()
+![PA8_rational_number_code_1](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_code_1.png)
+![PA8_rational_number_code_2](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_code_2.png)
+![PA8_rational_number_code_3](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_code_3.png)
+![PA8_rational_number_code_4](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_code_4.png)
+![PA8_rational_number_console2](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_console2.png)
+![PA8_rational_number_console3](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_console3.png)
