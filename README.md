@@ -110,3 +110,22 @@ This program that asks the user to enter a time in the format HH:MM or H:MM(the 
 ![PA7_digital_clock_code1.png]()
 ![PA7_digital_clock_code2.png]()
 ![PA7_digital_clock_console.png]()
+
+## PA8 Rational Number
+
+In mathematics, a rational number is any number that can be expressed as the quotient or fraction p/q of two integers, p, and q, with the denominator q not equal to zero. Since q may be equal to 1, every integer is a rational number.
+
+Define a structure that can represent a rational number. Perform all the following operations with any two valid rational numbers entered at the keyboard, in the format p/q of two integers . If there is ONLY 1 integer entered, it is accepted as the numerator, and consequently, the denominator will be 1 automatically.
+- Adding two rational numbers. The result is stored in reduced form. 
+- Subtracting two rational numbers. The result is stored in reduced form. 
+- Multiplying two rational numbers. The result is stored in reduced form. 
+- Dividing two rational numbers. The result is stored in reduced form. 
+- Printing rational numbers in the form n/d, where n is the numerator and d is the denominator.
+- Printing Rational numbers in floating-point (2 digits after the decimal point) format.
+
+The program runs continuously until the user wants to quit it.
+![PA8_rational_number_code_1]()
+![PA8_rational_number_code_2]()
+![PA8_rational_number_code_3]()
+![PA8_rational_number_console1]()
+![PA8_rational_number_console2]()
