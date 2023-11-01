@@ -235,10 +235,20 @@ int main() {
         // display original valid rational numbers
         cout << endl;
         cout << "a. Rational number 1: " << ratio1.numerator << "/" << ratio1.denominator;
-        cout << " (" << reduce_form(ratio1).numerator << "/" << reduce_form(ratio1).denominator << ")" << endl;
+        if (reduce_form(ratio1).denominator == 1){
+            cout << " (" << reduce_form(ratio1).numerator << ")" << endl;
+        }
+        else if (reduce_form(ratio1).denominator != 1){
+            cout << " (" << reduce_form(ratio1).numerator << "/" << reduce_form(ratio1).denominator << ")" << endl;
+        }
         
         cout << "   Rational number 2: " << ratio2.numerator << "/" << ratio2.denominator;
-        cout << " (" << reduce_form(ratio2).numerator << "/" << reduce_form(ratio2).denominator << ")" << endl;
+        if (reduce_form(ratio2).denominator == 1){
+            cout << " (" << reduce_form(ratio2).numerator << ")" << endl;
+        }
+        else if (reduce_form(ratio2).denominator != 1){
+            cout << " (" << reduce_form(ratio2).numerator << "/" << reduce_form(ratio2).denominator << ")" << endl;
+        }
         
         // display original rational numbers in floating-point format
         double num1 = covert_to_float(ratio1);
