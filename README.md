@@ -130,3 +130,41 @@ The program runs continuously until the user wants to quit it.
 ![PA8_rational_number_code_4](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_code_4.png)
 ![PA8_rational_number_console2](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_console2.png)
 ![PA8_rational_number_console3](https://github.com/CelineWW/CPP_Programming/blob/main/PA8_Rational_Number/PA8_rational_number_console3.png)
+
+## PA9 What's the Date
+use the class Date that asks for a date entered at the keyboard, with the format mm/dd/yyyy. And then, the program will display the date in the following four forms, if it is valid:
+- 12/25/2012 (US)
+- December 25, 2012 (US expanded)
+- 25 December 2012 (US Military)
+- 2012-12-25 (International)
+Reject all invalid date input. Ask for another date. Leap year is checked.
+Allow program to run continuously as long as the user wishes to test with any other date entered.
+
+```
+#ifndef Date_h
+#define Date_h
+#include <string>
+
+class Date {
+//private data members
+private:
+    int month;
+    int day;
+    int year;
+//public construtor and member function declarations
+public:
+    Date(int month = 0, int day = 0, int year = 0);
+    void set_year(int);
+    void set_month(int);
+    void set_day(int);
+    
+    int get_year() const;
+    int get_month() const;
+    int get_day() const;
+};
+
+#endif /* Date_h */
+```
+![PA9_Up_to_date_Code_9.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA9_What's_the_Date/PA9_Up_to_date_Code_9.png)
+![PA9_Up_to_date_run1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA9_What's_the_Date/PA9_Up_to_date_run1.png)
+![PA9_Up_to_date_run2.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA9_What's_the_Date/PA9_Up_to_date_run2.png)
