@@ -1,0 +1,379 @@
+************************************** main.cpp ********************************************
+//
+//  main.cpp
+//  PA9_What's_the_Date
+//
+//  Created by Celine Wang on 11/1/23.
+//
+
+#include <iostream>
+#include "Date.h"
+using namespace std;
+
+// validate_format input check function definition
+bool validate_format(string date) {
+    bool valid_format = true;
+    int slash1 = date.find_first_of('/');
+    int slash2 = date.find_last_of('/');
+    int slash_count = 0;
+    for (char c: date) {
+        if (c == '/'){              // count total slash
+            ++slash_count;
+        }
+    }
+    for (char c: date) {
+        if (!isdigit(c) && c != '/'){       // only includes '/' and numbers
+            valid_format = false;
+        }
+        else if (slash_count != 2) {        // slash count must be 2
+            valid_format = false;
+        }
+        else if (date.length() != 10){
+            valid_format = false;
+        }
+        else if (slash1 != 2 || slash2 != 5) {  // slash index are 2 and 5.
+            valid_format = false;
+        }
+    }
+        return valid_format;
+}
+// check_leap_year function definition
+bool check_leap_year(int year_param) {
+    bool leap_year = false;
+    if (year_param % 400 == 0 ){
+        leap_year = true;
+    }
+    else if (year_param % 100 != 0 && year_param % 4 == 0 ){
+        leap_year = true;
+    }
+    else
+        leap_year = false;
+    return leap_year;
+}
+
+// validate_month function definition
+void validate_month(int month_param) {
+    if (month_param > 12 || month_param < 1) {
+        cout << "\nMonth is invalid.\n";
+    }
+}
+
+// month number to month name function definition
+string to_name(int month_param) {
+    string month_name;
+    if (month_param == 1) {month_name = "January";}
+    else if (month_param == 2) {month_name = "February";}
+    else if (month_param == 3) {month_name = "March";}
+    else if (month_param == 4) {month_name = "April";}
+    else if (month_param == 5) {month_name = "May";}
+    else if (month_param == 6) {month_name = "June";}
+    else if (month_param == 7) {month_name = "July";}
+    else if (month_param == 8) {month_name = "August";}
+    else if (month_param == 9) {month_name = "September";}
+    else if (month_param == 10) {month_name = "October";}
+    else if (month_param == 11) {month_name = "November";}
+    else if (month_param == 12) {month_name = "December";}
+    return month_name;
+}
+ 
+// get_us date formatting function definition
+string get_us(int month_param, int day_param, int year_param) {
+    string us;
+    cout << to_string(month_param) << "/" << to_string(day_param) << "/" << to_string(year_param);
+    return us;
+}
+// get_us_expanded date formatting function definition
+string get_us_expanded(int month_param, int day_param, int year_param) {
+    string us_expanded;
+    cout << to_name(month_param) << " " << to_string(day_param) << ", " << to_string(year_param) << " (US Expanded).";
+    return us_expanded;
+}
+// get_us_military date formatting function definition
+string get_us_military(int month_param, int day_param, int year_param) {
+    string us_military;
+    cout << to_string(day_param) << " " << to_name(month_param)  <<  " " << to_string(year_param) << " (US Military).";
+    return us_military;
+}
+// get_international date formatting function definition
+string get_international(string month_param, int day_param, int year_param) {
+    string international;
+    cout << to_string(year_param) << "-" << month_param << "-" << to_string(day_param) << " (International).";
+    return international;
+}
+
+int main() {
+    char choice = 'y';
+    bool valid_date = false;
+    while (tolower(choice) == 'y' || !valid_date){
+        // Display title
+        cout << "What's the Data?\n\n";
+        cout << "The program displays a valid date in three different formats.\n"
+             << "Note: All junk data will be rejected.";
+        
+        Date date;
+        // Input format validation
+        bool valid_format = false;
+        string mydate;
+        string mymonth_str;
+        while (!valid_format){
+            cin.clear();
+            cout << endl;
+            cout << "Enter a date (mm/dd/yyyy) or -1 to end: ";
+            cin >> mydate;
+            
+            if (mydate == "-1") {     // Enter "-1" to end
+                break;
+            }
+            
+            // input format validation
+            valid_format = validate_format(mydate);
+            
+//            // test validation
+//            cout << "\n valid_format --" << valid_format;
+//            cout << "\n valid_date --" <<  valid_date;
+            
+            if (!valid_format) {
+                cout << endl;
+                cout << "Invalid date/ wrong format: Use two digits for both month and day.\n";
+                continue;
+            }
+            
+            // Extract MM, DD and YYYY.
+            mymonth_str = mydate.substr(0, 2);
+            string myday_str = mydate.substr(3, 5);
+            string myyear_str = mydate.substr(6);
+            int mymonth = stoi(mymonth_str);
+            int myday = stoi(myday_str);
+            int myyear = stoi(myyear_str);
+            
+            date.set_year(myyear);
+            date.set_month(mymonth);
+            date.set_day(myday);
+            
+//        // test display date
+//        cout << "\nmyyear " << myyear;
+//        cout << "\nmymonth " << mymonth;
+//        cout << "\nmyday " << myday;
+//
+//        cout << "\nYYYY " << date.get_year();
+//        cout << "\nMM " << date.get_month();
+//        cout << "\nDD " << date.get_day();
+        
+        
+            validate_month(date.get_month());
+            cout << endl;
+            valid_date = false;
+            while (!valid_date) {
+                valid_date = true;
+                // January
+                if (date.get_month() == 1 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 1 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                
+                // February
+                if (date.get_month() == 2 && date.get_day() > 29) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 2 && date.get_day() == 29) {
+                    if (check_leap_year(date.get_year())) {
+                        cout << date.get_year() << " -> Leap Year!\n";
+                        cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                    }
+                    else if (!check_leap_year(date.get_year())) {
+                        cout << date.get_year() << " -> NOT Leap Year!\n";
+                        cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                        valid_date = false;
+                    }
+                }
+                else if (date.get_month() == 2 && date.get_day() < 29) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // March
+                if (date.get_month() == 3 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 3 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // April
+                if (date.get_month() == 4 && date.get_day() > 30) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 4 && date.get_day() <= 30) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // May
+                if (date.get_month() == 5 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 5 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // June
+                if (date.get_month() == 6 && date.get_day() > 30) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 6 && date.get_day() <= 30) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // July
+                if (date.get_month() == 7 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 7 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // August
+                if (date.get_month() == 8 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 8 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // September
+                if (date.get_month() == 9 && date.get_day() > 30) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 9 && date.get_day() <= 30) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // October
+                if (date.get_month() == 10 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 10 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // November
+                if (date.get_month() == 11 && date.get_day() > 30) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                    break;
+                }
+                else if (date.get_month() == 11 && date.get_day() <= 30) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                // December
+                if (date.get_month() == 12 && date.get_day() > 31) {
+                    cout << date.get_day() << " is not a valid day in " << to_name(date.get_month()) << endl;
+                    valid_date = false;
+                }
+                else if (date.get_month() == 12 && date.get_day() <= 31) {
+                    cout << "Date: " << get_us(date.get_month(), date.get_day(), date.get_year()) << " is valid.\n";
+                }
+                if (!valid_date) {
+                    cout << endl;
+                    cout << "Error!! The entered date is invalid! Re-Enter, Please!\n";
+                    valid_format = false;
+                    break;
+                }
+                // Display date in four different formats
+                cout << endl;
+                cout << get_us(date.get_month(), date.get_day(), date.get_year()) << " (US)." << endl;
+                cout << get_us_expanded(date.get_month(), date.get_day(), date.get_year()) << endl;
+                cout << get_us_military(date.get_month(), date.get_day(), date.get_year()) << endl;
+                cout << get_international(mymonth_str, date.get_day(), date.get_year()) << endl;
+            }
+        }
+  
+        // Ask user if run program again
+        cout << "\nRun again (y/n)? ";
+        cin >> choice;
+        cout << endl;
+    }
+    // Programmer name
+    cout << "\nProgrammer: Celine Wang - What's the Date?\n";
+    cout << "\nPress <Enter> key to end ... \n";
+    cin.ignore();
+    
+    return 0;
+}
+
+************************************* Date.cpp ********************************************
+
+//
+//  Date.cpp
+//  PA9_What's_the_Date
+//
+//  Created by Celine Wang on 11/1/23.
+//
+
+#include "Date.h"
+#include <iostream>
+using std::string;
+using std::invalid_argument;
+
+// Define object constructor
+Date::Date(int month_param, int day_param, int year_param) {
+    set_month(month_param);
+    set_day(day_param);
+    set_year(year_param);
+}
+// setter functions definition
+void Date::set_year(int year_param) {
+    year = year_param;
+}
+
+void Date::set_month(int month_param) {
+        month = month_param;
+}
+
+void Date::set_day(int day_param) {
+        day = day_param;
+}
+int Date::get_year() const {
+    return year;
+}
+int Date::get_month() const {
+    return month;
+}
+int Date::get_day() const {
+    return day;
+}
+
+
+************************************* Date.h ********************************************
+
+//
+//  Date.h
+//  PA9_What's_the_Date
+//
+//  Created by Celine Wang on 11/1/23.
+//
+
+#ifndef Date_h
+#define Date_h
+#include <string>
+
+class Date {
+//private data members
+private:
+    int month;
+    int day;
+    int year;
+//public construtor and member function declarations
+public:
+    Date(int month = 0, int day = 0, int year = 0);
+    void set_year(int);
+    void set_month(int);
+    void set_day(int);
+    
+    int get_year() const;
+    int get_month() const;
+    int get_day() const;
+};
+
+#endif /* Date_h */
