@@ -168,3 +168,10 @@ public:
 ![PA9_Up_to_date_Code_9.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA9_What's_the_Date/PA9_Up_to_date_Code_9.png)
 ![PA9_Up_to_date_run1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA9_What's_the_Date/PA9_Up_to_date_run1.png)
 ![PA9_Up_to_date_run2.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA9_What's_the_Date/PA9_Up_to_date_run2.png)
+
+
+## PA10 Characters Counting
+This program reads a string of characters (case sensitive) entered from the keyboard, and then the program will count and list all digits, vowels, and consonants found in the string. 
+
+![PA10_Characters_Counting_Code.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA10_characters_counting/PA10_Characters_Counting_Code.png)
+![PA10_Characters_Counting_Console.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA10_characters_counting/PA10_Characters_Counting_Console.png)
