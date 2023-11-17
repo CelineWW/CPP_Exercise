@@ -1,0 +1,276 @@
+
+PA11 NumDays - Work hours 
+------------------------------------ main.cpp start------------------------------
+//
+//  main.cpp
+//  PA11_NumDays
+//
+//  Created by Celine Wang on 11/16/23.
+//
+
+#include <iostream>
+#include <iomanip>
+#include "hours.h"
+
+using namespace std;
+
+int main() {
+    // display itle
+    std::cout << "NumDays Program\n\n";
+    
+    char choice = 'y';
+    while(tolower(choice == 'y')){
+        Hours h1, h2;
+        // storing and retrieving the work days.
+        cout << fixed << setprecision(2);
+        cin >> h1;
+        cout << "One: " << h1 << endl;
+        // option:  cout << "One: " << h1.get_days() << " days.\n\n";
+        
+        cin >> h2;
+        cout << "Two: " << h2 << endl;
+        // option:  cout << "Two: " << h2.get_days() << " days.\n\n";
+        
+        // operators
+        Hours h3 = h1 + h2;
+        Hours h4 = h1 - h2;
+        cout << "Addition: One + Two: " << h3;
+        cout << "Subtraction: One - Two: " << h4 << endl;
+        //option:  cout << "Addition: One + Two: " << (h1+h2).get_days() << " days.\n";
+        //option:  cout << "Subtraction: One - Two: " << (h1-h2).get_days() << " days.\n\n";
+
+        
+        cout << "One++: " << h1++.get_days() << " days.\n";
+        cout << "++One: " << h1.get_days() << " days.\n\n";
+        
+        cout << "Two--: " << h2--.get_days() << " days.\n";
+        cout << "--Two: " << h2.get_days() << " days.\n\n";
+        
+        // prompt user run again
+        cout << "Test the program again (y/n)? ";
+        cin >> choice;
+        cout << "------------------------------------------\n\n";
+    }
+    cout << "Programmer: Celine Wang - What A Long Day!\n";
+    cout << "Press the [Enter] key to end ...\n";
+    cin.ignore();
+    cin.get();
+    
+    return 0;
+}
+------------------------------------ main.cpp end------------------------------
+
+
+------------------------------------ hours.h start-----------------------------
+//
+//  hours.h
+//  PA11_NumDays
+//
+//  Created by Celine Wang on 11/16/23.
+//
+#include <string>
+#ifndef hours_h
+#define hours_h
+
+class Hours {
+private:
+    int hours;
+    double days;
+    
+public:
+    Hours(int hours_param = 0) {
+        hours = hours_param;
+        days = hours_param / 8;
+    }
+    
+    // function declarations
+    void set_hours(int hours_param);
+    int get_hours() const;
+    double get_days() const;
+    
+    
+    // operator declarations
+    Hours operator+ (const Hours& right);
+    Hours operator- (const Hours& right);
+    Hours operator++ ();
+    Hours operator-- ();
+    Hours operator++ (int unused_param);
+    Hours operator-- (int unused_param);
+    
+    friend std::ostream& operator<< (std::ostream&, const Hours&);
+    friend std::istream& operator>> (std::istream&, Hours&);
+};
+
+#endif /* hours_h */
+------------------------------------ hours.h end --------------------------------
+
+------------------------------------ hours.cpp start-----------------------------
+//
+//  hours.cpp
+//  PA11_NumDays
+//
+//  Created by Celine Wang on 11/16/23.
+//
+
+#include "hours.h"
+#include <iostream>
+
+using namespace std;
+
+//functions definitions
+void Hours::set_hours(int hours_param = 0) {
+    hours = hours_param;
+}
+
+int Hours::get_hours() const {
+    return hours;
+}
+
+double Hours::get_days() const {
+    return static_cast<double>(hours)/8;
+}
+
+// operators definition
+Hours Hours::operator+ (const Hours& right) {
+    Hours h;
+    h.set_hours(hours + right.hours);
+    return h;
+}
+
+Hours Hours::operator- (const Hours& right) {
+    Hours h;
+    h.set_hours(hours - right.hours);
+    return h;
+}
+
+Hours Hours::operator++ () {
+    ++hours;
+    return *this;
+}
+
+Hours Hours::operator-- () {
+    --hours;
+    return *this;
+}
+
+Hours Hours::operator++ (int unused_param) {
+    Hours temp = *this;
+    ++hours;
+    return temp;
+}
+
+Hours Hours::operator-- (int unused_param) {
+    Hours temp = *this;
+    --hours;
+    return temp;
+}
+
+istream& operator>> (istream& in, Hours& h){
+    while (true) {
+        cout << "Enter the number of work hours: ";
+        in >> h.hours;
+        if (in.fail()){
+            cout << "Invaild! Work hours must be an integer.\n\n";
+            in.clear();
+            in.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        else {
+            break;
+        }
+    }
+    return in;
+}
+
+ostream& operator<< (ostream& out, const Hours& h) {
+    out << h.get_days() << " days.\n";
+    return out;
+}
+
+------------------------------------ hours.cpp end-----------------------------
+
+
+
+******************************* sample run start ********************************
+
+NumDays Program
+
+Enter the number of work hours: abc
+Invaild! Work hours must be an integer.
+
+Enter the number of work hours: 12
+One: 1.50 days.
+
+Enter the number of work hours: 20
+Two: 2.50 days.
+
+Addition: One + Two: 4.00 days.
+Subtraction: One - Two: -1.00 days.
+
+One++: 1.50 days.
+++One: 1.62 days.
+
+Two--: 2.50 days.
+--Two: 2.38 days.
+
+Test the program again (y/n)? y
+------------------------------------------
+
+Enter the number of work hours: 25
+One: 3.12 days.
+
+Enter the number of work hours: 15
+Two: 1.88 days.
+
+Addition: One + Two: 5.00 days.
+Subtraction: One - Two: 1.25 days.
+
+One++: 3.12 days.
+++One: 3.25 days.
+
+Two--: 1.88 days.
+--Two: 1.75 days.
+
+Test the program again (y/n)? y
+------------------------------------------
+
+Enter the number of work hours: 15
+One: 1.88 days.
+
+Enter the number of work hours: 25
+Two: 3.12 days.
+
+Addition: One + Two: 5.00 days.
+Subtraction: One - Two: -1.25 days.
+
+One++: 1.88 days.
+++One: 2.00 days.
+
+Two--: 3.12 days.
+--Two: 3.00 days.
+
+Test the program again (y/n)? y
+------------------------------------------
+
+Enter the number of work hours: 4
+One: 0.50 days.
+
+Enter the number of work hours: 6
+Two: 0.75 days.
+
+Addition: One + Two: 1.25 days.
+Subtraction: One - Two: -0.25 days.
+
+One++: 0.50 days.
+++One: 0.62 days.
+
+Two--: 0.75 days.
+--Two: 0.62 days.
+
+Test the program again (y/n)? n
+------------------------------------------
+
+Programmer: Celine Wang - What A Long Day!
+Press the [Enter] key to end ...
+Program ended with exit code: 9
+
+******************************* sample run end *********************************
