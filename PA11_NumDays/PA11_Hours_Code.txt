@@ -10,7 +10,7 @@ PA11 NumDays - Work hours
 
 #include <iostream>
 #include <iomanip>
-#include "numdays.h"
+#include "hours.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int main() {
     
     char choice = 'y';
     while(tolower(choice == 'y')){
-        NumDays h1, h2;
+        Hours h1, h2;
         // storing and retrieving the work days.
         cout << fixed << setprecision(2);
         cin >> h1;
@@ -32,8 +32,8 @@ int main() {
         // option:  cout << "Two: " << h2.get_days() << " days.\n\n";
         
         // operators
-        NumDays h3 = h1 + h2;
-        NumDays h4 = h1 - h2;
+        Hours h3 = h1 + h2;
+        Hours h4 = h1 - h2;
         cout << "Addition: One + Two: " << h3;
         cout << "Subtraction: One - Two: " << h4 << endl;
         //option:  cout << "Addition: One + Two: " << (h1+h2).get_days() << " days.\n";
@@ -58,28 +58,27 @@ int main() {
     
     return 0;
 }
-
 ------------------------------------ main.cpp end------------------------------
 
 
------------------------------------- numdays.h start-----------------------------
+------------------------------------ hours.h start-----------------------------
 //
-//  numdays.h
+//  hours.h
 //  PA11_NumDays
 //
 //  Created by Celine Wang on 11/16/23.
 //
 #include <string>
-#ifndef numdays_h
-#define numdays_h
+#ifndef hours_h
+#define hours_h
 
-class NumDays {
+class Hours {
 private:
     int hours;
     double days;
     
 public:
-    NumDays(int hours_param = 0) {
+    Hours(int hours_param = 0) {
         hours = hours_param;
         days = hours_param / 8;
     }
@@ -91,83 +90,82 @@ public:
     
     
     // operator declarations
-    NumDays operator+ (const NumDays& right);
-    NumDays operator- (const NumDays& right);
-    NumDays operator++ ();
-    NumDays operator-- ();
-    NumDays operator++ (int unused_param);
-    NumDays operator-- (int unused_param);
+    Hours operator+ (const Hours& right);
+    Hours operator- (const Hours& right);
+    Hours operator++ ();
+    Hours operator-- ();
+    Hours operator++ (int unused_param);
+    Hours operator-- (int unused_param);
     
-    friend std::ostream& operator<< (std::ostream&, const NumDays&);
-    friend std::istream& operator>> (std::istream&, NumDays&);
+    friend std::ostream& operator<< (std::ostream&, const Hours&);
+    friend std::istream& operator>> (std::istream&, Hours&);
 };
 
-#endif /* numdays_h */
+#endif /* hours_h */
+------------------------------------ hours.h end --------------------------------
 
------------------------------------- numdays.h end --------------------------------
-
------------------------------------- numdays.cpp start-----------------------------
+------------------------------------ hours.cpp start-----------------------------
 //
-//  numdays.cpp
+//  hours.cpp
 //  PA11_NumDays
 //
 //  Created by Celine Wang on 11/16/23.
 //
 
-#include "numdays.h"
+#include "hours.h"
 #include <iostream>
 
 using namespace std;
 
 //functions definitions
-void NumDays::set_hours(int hours_param = 0) {
+void Hours::set_hours(int hours_param = 0) {
     hours = hours_param;
 }
 
-int NumDays::get_hours() const {
+int Hours::get_hours() const {
     return hours;
 }
 
-double NumDays::get_days() const {
+double Hours::get_days() const {
     return static_cast<double>(hours)/8;
 }
 
 // operators definition
-NumDays NumDays::operator+ (const NumDays& right) {
-    NumDays h;
+Hours Hours::operator+ (const Hours& right) {
+    Hours h;
     h.set_hours(hours + right.hours);
     return h;
 }
 
-NumDays NumDays::operator- (const NumDays& right) {
-    NumDays h;
+Hours Hours::operator- (const Hours& right) {
+    Hours h;
     h.set_hours(hours - right.hours);
     return h;
 }
 
-NumDays NumDays::operator++ () {
+Hours Hours::operator++ () {
     ++hours;
     return *this;
 }
 
-NumDays NumDays::operator-- () {
+Hours Hours::operator-- () {
     --hours;
     return *this;
 }
 
-NumDays NumDays::operator++ (int unused_param) {
-    NumDays temp = *this;
+Hours Hours::operator++ (int unused_param) {
+    Hours temp = *this;
     ++hours;
     return temp;
 }
 
-NumDays NumDays::operator-- (int unused_param) {
-    NumDays temp = *this;
+Hours Hours::operator-- (int unused_param) {
+    Hours temp = *this;
     --hours;
     return temp;
 }
 
-istream& operator>> (istream& in, NumDays& h){
+istream& operator>> (istream& in, Hours& h){
     while (true) {
         cout << "Enter the number of work hours: ";
         in >> h.hours;
@@ -183,12 +181,12 @@ istream& operator>> (istream& in, NumDays& h){
     return in;
 }
 
-ostream& operator<< (ostream& out, const NumDays& h) {
+ostream& operator<< (ostream& out, const Hours& h) {
     out << h.get_days() << " days.\n";
     return out;
 }
 
------------------------------------- numdays.cpp end-----------------------------
+------------------------------------ hours.cpp end-----------------------------
 
 
 
