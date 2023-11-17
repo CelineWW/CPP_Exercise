@@ -175,3 +175,47 @@ This program reads a string of characters (case sensitive) entered from the keyb
 
 ![PA10_Characters_Counting_Code.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA10_characters_counting/PA10_Characters_Counting_Code.png)
 ![PA10_Characters_Counting_Console.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA10_characters_counting/PA10_Characters_Counting_Console.png)
+
+## PA11 NumDays
+Design a class called NumDays. The class’s purpose is to store an integer value that represents the number of work hours and convert it to the number of days. The conversion is specifically defined as 8 work hours equal to 1 day. 
+The class have :
+- a constructor that accepts an integer for the number of work hours
+- member functions for storing and retrieving the hours and days. 
+- and the following overloaded operators:
+    - \+ Addition operator: when two NumDays objects are added together, the overloaded + operator returns the sum of the two objects’ hours members.
+    - \- Subtraction operator: when one NumDays object is subtracted from another, the overloaded - operator returns the difference between the two objects’ hours members.
+    - \++ Prefix and postfix increment operators. These two operators should increment the number of hours stored in the object. When incremented, the number of days is automatically recalculated.
+    - \-- Prefix and postfix decrement operators. These two operators should decrement the number of hours stored in the object. When decremented, the number of days is automatically recalculated.
+
+    ```
+    class Hours {
+    private:
+        int hours;
+        double days;
+    
+    public:
+        Hours(int hours_param = 0) {
+            hours = hours_param;
+            days = hours_param / 8;
+        }
+        
+        // function declarations
+        void set_hours(int hours_param);
+        int get_hours() const;
+        double get_days() const;
+        
+        // operator declarations
+        Hours operator+ (const Hours& right);
+        Hours operator- (const Hours& right);
+        Hours operator++ ();
+        Hours operator-- ();
+        Hours operator++ (int unused_param);
+        Hours operator-- (int unused_param);
+        
+        friend std::ostream& operator<< (std::ostream&, const Hours&);
+        friend std::istream& operator>> (std::istream&, Hours&);
+    }
+    ```
+    ![PA11_NumDays_Run1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA11_NumDays/PA11_NumDays_Run1.png)
+    ![PA11_NumDays_main.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA11_NumDays/PA11_NumDays_main.png)
+    ![]
