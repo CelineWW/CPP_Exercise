@@ -188,13 +188,13 @@ The class have :
     - \-- Prefix and postfix decrement operators. These two operators should decrement the number of hours stored in the object. When decremented, the number of days is automatically recalculated.
 
     ```
-    class Hours {
+    class NumDays {
     private:
         int hours;
         double days;
-    
+        
     public:
-        Hours(int hours_param = 0) {
+        NumDays(int hours_param = 0) {
             hours = hours_param;
             days = hours_param / 8;
         }
@@ -204,17 +204,18 @@ The class have :
         int get_hours() const;
         double get_days() const;
         
-        // operator declarations
-        Hours operator+ (const Hours& right);
-        Hours operator- (const Hours& right);
-        Hours operator++ ();
-        Hours operator-- ();
-        Hours operator++ (int unused_param);
-        Hours operator-- (int unused_param);
         
-        friend std::ostream& operator<< (std::ostream&, const Hours&);
-        friend std::istream& operator>> (std::istream&, Hours&);
-    }
+        // operator declarations
+        NumDays operator+ (const NumDays& right);
+        NumDays operator- (const NumDays& right);
+        NumDays operator++ ();
+        NumDays operator-- ();
+        NumDays operator++ (int unused_param);
+        NumDays operator-- (int unused_param);
+        
+        friend std::ostream& operator<< (std::ostream&, const NumDays&);
+        friend std::istream& operator>> (std::istream&, NumDays&);
+    };
     ```
     ![PA11_NumDays_Run1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA11_NumDays/PA11_NumDays_Run1.png)
     ![PA11_NumDays_main.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA11_NumDays/PA11_NumDays_main.png)
