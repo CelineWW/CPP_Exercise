@@ -1,0 +1,204 @@
+PA12 Three Strikes and You Are Out
+
+// 
+//  main.cpp
+//  PA12_three_strikes
+//
+//  Created by Celine Wang on 11/27/23.
+//
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <vector>
+#include <string>
+
+
+using namespace std;
+//Price structure
+struct Price{
+    int dig_4 = '_';
+    int dig_3 = '_';
+    int dig_2 = '_';
+    int dig_1 = '_';
+    int dig_0 = '_';
+    bool equals(const Price&);
+};
+// Price member function
+bool Price::equals (const Price& to_compare){
+    return (dig_4 == to_compare.dig_4 && dig_3 == to_compare.dig_3 && dig_2 == to_compare.dig_2 && dig_1 == to_compare.dig_1 && dig_0 == to_compare.dig_0);
+}
+
+// display_price function definition
+int display_price(Price price_param){
+    int price = price_param.dig_4 * 10000 + price_param.dig_3 * 1000 + price_param.dig_2 * 100 + price_param.dig_1 * 10 + price_param.dig_0;
+    return price;
+}
+
+// break_price function to covert integer car price to be struct object
+Price break_price(int price){
+    // price is default to be a 5 digits number
+    Price price_break;
+    price_break.dig_4 = price / 10000 % 10;
+    price_break.dig_3 = price / 1000 % 10;
+    price_break.dig_2 = price / 100 % 10;
+    price_break.dig_1 = price / 10 % 10;
+    price_break.dig_0 = price % 10;
+    return price_break;
+}
+
+// display_process function definition
+void display_process(int hit, int placed){
+    cout << "Strikes hit: " << hit << endl;
+    cout << "Digits placed: " << placed << endl;
+    cout << endl << endl;
+}
+
+// convert_to_string function for converting strut object members to string
+string convert_to_string(int num){
+    string num_string;
+    if (num <= 9 && num >= 0){
+        num_string = to_string(num);
+    }
+    else if (num >= 10) {
+        num_string = string(1, num);
+    }
+    return num_string;
+}
+
+// display_panel function for displaying the guess outcome
+void display_panel(const Price& price){
+    cout << "Panel: $ " << convert_to_string(price.dig_4) << " " << convert_to_string(price.dig_3) << " " << convert_to_string(price.dig_2) << " " << convert_to_string(price.dig_1) << " " << convert_to_string(price.dig_0) << endl;
+    cout << "         4 3 2 1 0\n\n";
+    cout << "~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^\n\n";
+}
+
+int main() {
+    // list car prices in a vector
+    const vector<int> cars {89317, 19634};
+    
+    // repeatedly prompt user to play the game
+    char choice = 'y';
+    while (tolower(choice == 'y')){
+        
+        // display title
+        cout << endl << endl;
+        cout << "                *********** Welcome to Three Strikes Game ***********                \n\n"
+             << "                Pick a chip from a bag, the chip will contain\n"
+             << "                a digit or a strike, if it's a digit then guess\n"
+             << "                which position it belongs to the car's price\n\n";
+        cout << "                        PANEL   : _ _ _ _ _ <- this is the 0th position\n\n"
+             << "                        POSITION: 4 3 2 1 0\n\n"
+             << "                Accumulating three strikes will result in losing the game.\n\n\n"
+             << "~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^\n\n";
+        
+        // randomly pick a car from cars vector
+        srand((unsigned)time(NULL));
+        int car_index = rand() % 2;
+        int car = cars[car_index];
+        
+        // create car price object and show secret price for game host
+        Price car_price = break_price(car);
+        Price car_guess;
+        cout << "The price must be hidden: $" << car << endl;
+        cout << "(Shhhh! It's revealed to you as the programmer's darling!!!)\n\n" << endl;
+        cout << "~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^\n\n";
+        
+        // scramble digits and add 3 strikes into the bag
+        vector<int> digits = {car_price.dig_4, car_price.dig_3,car_price.dig_2, car_price.dig_1, car_price.dig_0, 'X', 'X', 'X'};
+        int strike_count = 0;
+        int digit_placed = 0;
+        while (strike_count < 3){
+            cout << "Enter 'p' to pick a chip, or any other key to quit the game: ";
+            char pick;
+            cin >> pick;
+            cin.ignore(1000, '\n');
+            int digit = 10;
+            
+            // decrement bag size by correctly placed the digit or hit the strike
+            srand((unsigned)time(NULL));
+            int random_index = rand() % (8 - digit_placed - strike_count);
+            // randomly pick digit or strike from the bag
+            if (pick == 'p'){
+                digit = digits[random_index];
+            }
+            else
+                // if a key other than 'p' pressed, exit the program
+                break;
+
+            // if a strike is picked, move it from the bag and increment strike_count variable
+            if (digit == 'X'){
+                cout << "\nYou picked a strike!!\n\n";
+                digits.erase(digits.begin() + random_index);
+                ++strike_count;
+            }
+            
+            // if a digit is picked, prompt player to assign a place for it
+            else {
+                int place;
+                cout << "\nYou picked the digit: " << digit << endl;
+                cout << "Which position do you think it is? ";
+                cin >> place;
+                cout << "place: " << place << endl;
+                cin.ignore(1000, '\n');
+                int correct_place = 10;
+                if (digit == car_price.dig_4){correct_place = 4;}
+                else if (digit == car_price.dig_3){correct_place = 3;}
+                else if (digit == car_price.dig_2){correct_place = 2;}
+                else if (digit == car_price.dig_1){correct_place = 1;}
+                else if (digit == car_price.dig_0){correct_place = 0;}
+                
+                // if the digit is correctly placed, move it out from the bag, and increment digit_placed variable
+                if (place == correct_place){
+                    digits.erase(digits.begin() + random_index);
+                    cout << "Correct, you picked the correct position!!\n\n";
+                    switch (place){
+                        case 4:
+                            car_guess.dig_4 = digit;
+                            break;
+                        case 3:
+                            car_guess.dig_3 = digit;
+                            break;
+                        case 2:
+                            car_guess.dig_2 = digit;
+                            break;
+                        case 1:
+                            car_guess.dig_1 = digit;
+                            break;
+                        case 0:
+                            car_guess.dig_0 = digit;
+                            break;
+                    }
+                    ++digit_placed;
+                    
+                    // once all digit correctly placed, player win the game
+                    if (car_guess.equals(car_price)){
+                        cout << "Congratulations! You won the car!!!\n\n";
+                        break;
+                    }
+                }
+                // if the digit is not correctly placed
+                else {
+                    cout << "Sorry! You guessed the wrong position.\n\n";
+                }
+            }
+            // display game process and the current status
+            display_process(strike_count, digit_placed);
+            display_panel(car_guess);
+        }
+        
+        // if the play hit 3 strikes, game over
+        if (strike_count == 3){
+            cout << "Sorry, you lost the game!\n\n";
+        }
+        // reveal the correct car price to end the game and ask if continue
+        cout << "\nThe price of the car was: $" << car << endl;
+        cout << "\nDo you want to play again (y/n) ? ";
+        cin >> choice;
+    }
+    // exit the program
+    cout << endl;
+    cout << "Programmer: Celine Wang - written for the class CISC 192/C++ Programming.\n";
+    cout << "Thanks for using the game. So Long, farewell!\n";
+    return 0;
+}

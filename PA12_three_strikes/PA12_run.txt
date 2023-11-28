@@ -1,0 +1,276 @@
+
+                *********** Welcome to Three Strikes Game ***********                
+
+                Pick a chip from a bag, the chip will contain
+                a digit or a strike, if it's a digit then guess
+                which position it belongs to the car's price
+
+                        PANEL   : _ _ _ _ _ <- this is the 0th position
+
+                        POSITION: 4 3 2 1 0
+
+                Accumulating three strikes will result in losing the game.
+
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+The price must be hidden: $19634
+(Shhhh! It's revealed to you as the programmer's darling!!!)
+
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: o
+
+The price of the car was: $19634
+
+Do you want to play again (y/n) ? y
+
+
+                *********** Welcome to Three Strikes Game ***********                
+
+                Pick a chip from a bag, the chip will contain
+                a digit or a strike, if it's a digit then guess
+                which position it belongs to the car's price
+
+                        PANEL   : _ _ _ _ _ <- this is the 0th position
+
+                        POSITION: 4 3 2 1 0
+
+                Accumulating three strikes will result in losing the game.
+
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+The price must be hidden: $89317
+(Shhhh! It's revealed to you as the programmer's darling!!!)
+
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 1
+Which position do you think it is? 4
+place: 4
+Sorry! You guessed the wrong position.
+
+Strikes hit: 0
+Digits placed: 0
+
+
+Panel: $ _ _ _ _ _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 1
+Which position do you think it is? 1
+place: 1
+Correct, you picked the correct position!!
+
+Strikes hit: 0
+Digits placed: 1
+
+
+Panel: $ _ _ _ 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 9
+Which position do you think it is? 3
+place: 3
+Correct, you picked the correct position!!
+
+Strikes hit: 0
+Digits placed: 2
+
+
+Panel: $ _ 9 _ 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked a strike!!
+
+Strikes hit: 1
+Digits placed: 2
+
+
+Panel: $ _ 9 _ 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 3
+Which position do you think it is? 2
+place: 2
+Correct, you picked the correct position!!
+
+Strikes hit: 1
+Digits placed: 3
+
+
+Panel: $ _ 9 3 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 8
+Which position do you think it is? 4
+place: 4
+Correct, you picked the correct position!!
+
+Strikes hit: 1
+Digits placed: 4
+
+
+Panel: $ 8 9 3 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 7
+Which position do you think it is? 0
+place: 0
+Correct, you picked the correct position!!
+
+Congratulations! You won the car!!!
+
+
+The price of the car was: $89317
+
+Do you want to play again (y/n) ? y
+
+
+                *********** Welcome to Three Strikes Game ***********                
+
+                Pick a chip from a bag, the chip will contain
+                a digit or a strike, if it's a digit then guess
+                which position it belongs to the car's price
+
+                        PANEL   : _ _ _ _ _ <- this is the 0th position
+
+                        POSITION: 4 3 2 1 0
+
+                Accumulating three strikes will result in losing the game.
+
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+The price must be hidden: $89317
+(Shhhh! It's revealed to you as the programmer's darling!!!)
+
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 8
+Which position do you think it is? 4
+place: 4
+Correct, you picked the correct position!!
+
+Strikes hit: 0
+Digits placed: 1
+
+
+Panel: $ 8 _ _ _ _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 3
+Which position do you think it is? 2
+place: 2
+Correct, you picked the correct position!!
+
+Strikes hit: 0
+Digits placed: 2
+
+
+Panel: $ 8 _ 3 _ _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked the digit: 1
+Which position do you think it is? 1
+place: 1
+Correct, you picked the correct position!!
+
+Strikes hit: 0
+Digits placed: 3
+
+
+Panel: $ 8 _ 3 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked a strike!!
+
+Strikes hit: 1
+Digits placed: 3
+
+
+Panel: $ 8 _ 3 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked a strike!!
+
+Strikes hit: 2
+Digits placed: 3
+
+
+Panel: $ 8 _ 3 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Enter 'p' to pick a chip, or any other key to quit the game: p
+
+You picked a strike!!
+
+Strikes hit: 3
+Digits placed: 3
+
+
+Panel: $ 8 _ 3 1 _
+         4 3 2 1 0
+
+~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^~-^
+
+Sorry, you lost the game!
+
+
+The price of the car was: $89317
+
+Do you want to play again (y/n) ? n
+
+Programmer: Celine Wang - written for the class CISC 192/C++ Programming.
+Thanks for using the game. So Long, farewell!
+Program ended with exit code: 0
