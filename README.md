@@ -220,3 +220,64 @@ The class have :
     ![PA11_NumDays_Run1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA11_NumDays/PA11_NumDays_Run1.png)
     ![PA11_NumDays_main.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA11_NumDays/PA11_NumDays_main.png)
     ![]
+
+
+## PA12 Three Strikes and You Are Out
+- Game Introduction
+
+    Three Strikes is a popular game played for winning a car.
+    There are five chips, each with one of the digits of the price of the car, and three chips with X’s (strikes).
+    All the digits of the price are different and unique (only one of its kind).
+    The eight chips are placed in a bag. The contestant picks chips from the bag one by one.
+    If the contestant picks a digit, she/he must guess which position in the price of the car the digit belongs.
+    If she/he is right, the digit lights up on the board, and the digit is discarded from the bag. If not, the digit is placed back in the bag.
+    If the contestant should pick a strike, the strike is removed from the bag.
+    The contestant wins if she/he fills out the price of the car before picking out all three strikes. 
+
+- About this program
+    The object oriented program implements the game Three Strikes and You Are Out.
+    1. Player can not pick a digit that was not in the price of the car. It's impossible to do that.
+    2. After each pick, the number of strikes hit and the number of digits correctly placed is shown on the screen.
+    3. There is a panel displayed to show the process of the game, locating the digits that were answered correctly.
+    4. In the end, regardless of losing or winning the game, the price of the car is displayed on the screen.
+    5. Note: for the purpose of debugging, the price is revealed in advance at the beginning before the game starts. 
+
+![PA12_run1.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA12_three_strikes/PA12_run1.png)
+![PA12_run4.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA12_three_strikes/PA12_run4.png)
+![PA12_run6.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA12_three_strikes/PA12_run6.png)
+
+## PA13 Banking
+This program create a superclass *Account* and subclass *Checking* and *Saving* to allow customer to create *Checking* and *Saving* account with a unique ID. 
+Some of member functions are inheritance and virtual functions.
+- Five general types of banking transactions for both accounts, Checking and Savings: 
+    - withdraw
+    - deposit
+    - calculate interest 
+    - balance
+    - transfer funds (between the two accounts, from Checking to Savings and vice versa).
+- Savings restrictions:
+    - Become inactive if the balance falls less than $25, and under such a situation, no more withdrawals may be allowed.
+    - A $1 charge for each transfer fund (to the Checking account), but not for the first transfer, which is free.
+    - The monthly interest rate is 3.75% based on the current balance, no new interest if not modified.
+-   Checking restrictions:
+    -   A monthly service charge is $5 (automatically charged when the Checking
+    account was opened).
+    -   10 cents are charged for each written check, but not for the first check, which is free. A $15 charge for each bounced check (not enough funds).
+    - The monthly interest rate is 2.5% based on the current balance, no new interest if not modified.
+
+![02.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/02.png)
+![03.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/03.png)
+![05.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/05.png)
+![06.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/06.png)
+![07.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/07.png)
+![09.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/09.png)
+![10.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA13_banking/PA13_banking_Run/10.png)
+
+## PA14 Number Patterns
+- The program display first 20 numbers with a pattern accociate with ordinal number. 
+- Then it allows user to enter a order number. The number follows the pattern is shown on the console.
+- To allow extremely large number input, *long long* data type is used to store pattern number.
+
+![PA14_number_patterns_Code_3.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA14_number_patterns/PA14_number_patterns_Code_3.png)
+![PA14_number_patterns_Run.png](https://github.com/CelineWW/CPP_Programming/blob/main/PA14_number_patterns/PA14_number_patterns_Run.png)
+
