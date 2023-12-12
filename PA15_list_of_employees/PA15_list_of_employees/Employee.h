@@ -35,8 +35,8 @@ public:
     
     // getter member function
     int get_employee_id() const;
-    ;std::string get_first_name() const;
-    ;std::string get_last_name() const;
+    std::string get_first_name() const;
+    std::string get_last_name() const;
     std::string get_full_name() const;
     int get_ssn() const;
     double get_wage() const;
@@ -45,6 +45,7 @@ public:
     int get_hire_month() const;
     int get_hire_day() const;
     std::string get_hire_date() const;
+    bool operator==(const Employee&);
     static std::string map_month(int);
 };
 
